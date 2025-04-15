@@ -54,10 +54,13 @@ const Landingpage = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    console.log("Search submitted:", searchValue);
-    // Add your search logic here
-    setSearchValue("");
+    if (!searchValue.trim()) {
+      alert("Please enter a search query.");
+      return;
+    }
+    navigate(`/results?query=${encodeURIComponent(searchValue)}`);
   };
+
 
   return (
     <div className={styles.carouselContainer}>
@@ -122,11 +125,9 @@ const Landingpage = () => {
           </form>
 
           <button
-            // onClick={() => console.log("Start Research clicked")}
-            onClick={() =>
-              navigate(`/results?query=${encodeURIComponent(searchValue)}`)
-            }
+            type="submit"
             className={styles.researchButton}
+            onClick={handleSearchSubmit}
           >
             Start Research
           </button>
