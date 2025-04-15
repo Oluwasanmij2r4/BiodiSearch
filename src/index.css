@@ -10,6 +10,8 @@
 body {
   margin: 0;
    --primary-color: #ffffff;
+   --secondary-color: #488f66;
+   --secondary-color-2: rgba(8, 117, 8, 0.9);
   --title-font: 'Playfair', serif;
   --body-font: 'Inter', sans-serif;
   --font-logo: 'Audiowide', sans-serif;

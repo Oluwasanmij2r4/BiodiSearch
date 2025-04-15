@@ -5,7 +5,7 @@ import { image, text } from "motion/react-client";
 import image1 from "../../assets/bg-img1.jpg";
 import image2 from "../../assets/bg-img2.jpg";
 import image3 from "../../assets/bg-img3.jpg";
-// import HomeNav from "../../components/Homenav/HomeNavbar";
+import HomeNav from "../../components/Homenav/Homenav";
 import { useNavigate } from "react-router-dom";
 
 const Landingpage = () => {
@@ -62,7 +62,7 @@ const Landingpage = () => {
   return (
     <div className={styles.carouselContainer}>
       <div className={styles.fixedNav}>
-        {/* <HomeNav /> */}
+        <HomeNav />
       </div>
       <div className={styles.backgroundContainer}>
         <AnimatePresence initial={false}>

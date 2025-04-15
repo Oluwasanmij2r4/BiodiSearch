@@ -9,7 +9,7 @@
 
 /* BackgroundCarousel.module.css */
 .carouselContainer {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   height: 100vh;
   overflow-y: hidden;
@@ -87,6 +87,7 @@
   text-align: center;
   padding-top: 2rem;
   font-style: italic;
+  color: var(--primary-color);
 }
 
 .searchWrapper {
@@ -107,11 +108,13 @@
 .searchInput {
   width: 100%;
   padding: 0.75rem 1.25rem;
+  font-size: 1rem;
   padding-right: 3rem;
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(4px);
   color: white;
+  font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -129,20 +132,20 @@
 
 .researchButton {
   padding: 0.75rem 1.5rem;
-  background-color: rgba(79, 70, 229, 0.85);
+   background-color: var(--secondary-color);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 9999px;
   font-weight: 600;
   transition: all 0.2s ease;
   backdrop-filter: blur(4px);
-  width: 100%;
+  width: 150px;
   max-width: 16rem;
   cursor: pointer;
 }
 
 .researchButton:hover {
-  background-color: rgba(99, 102, 241, 0.9);
+  background-color: var(--secondary-color-2);
   transform: translateY(-2px);
 }
 
