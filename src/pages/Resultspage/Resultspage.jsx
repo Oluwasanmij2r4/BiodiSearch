@@ -1,7 +1,7 @@
 import styles from "./resultspage.module.css";
 import {React, useEffect} from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-// import Navbar from "../../components/Navbar/Navbar";
+import Searchbox from "../../components/Searchbox/Searchbox";
 
 const ResultPage = () => {
   const [searchParams] = useSearchParams(); // Get the search value from the URL parameters
@@ -18,8 +18,9 @@ const ResultPage = () => {
 
 
   return (
-    <div>
+    <div className={styles.resultsPageWrapper}>
       <div className={styles.header}>
+        <Searchbox />
         <p>goat</p>
       </div>
       <div className={styles.resultPageContainer}>

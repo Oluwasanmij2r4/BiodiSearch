@@ -7,6 +7,7 @@ import image2 from "../../assets/bg-img2.jpg";
 import image3 from "../../assets/bg-img3.jpg";
 import HomeNav from "../../components/Homenav/Homenav";
 import { useNavigate } from "react-router-dom";
+import Searchbox from "../../components/Searchbox/Searchbox";
 
 const Landingpage = () => {
   const navigate = useNavigate();
@@ -50,15 +51,6 @@ const Landingpage = () => {
 
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    if (!searchValue.trim()) {
-      alert("Please enter a search query.");
-      return;
-    }
-    navigate(`/results?query=${encodeURIComponent(searchValue)}`);
   };
 
 
@@ -113,25 +105,10 @@ const Landingpage = () => {
           </AnimatePresence>
         </div>
 
-        <div className={styles.searchWrapper}>
-          <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
-            <input
-              type="text"
-              value={searchValue}
-              onChange={handleSearchChange}
-              placeholder="Search here..."
-              className={styles.searchInput}
-            />
-          </form>
-
-          <button
-            type="submit"
-            className={styles.researchButton}
-            onClick={handleSearchSubmit}
-          >
-            Start Research
-          </button>
+        <div>
+            <Searchbox />
         </div>
+
         <p className={styles.formText}>
           Example: "Birds in Kenya │ Marine life in the Philippines │ Endemic
           plants in Madagascar"
