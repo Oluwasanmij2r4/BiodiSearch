@@ -6,11 +6,10 @@ import image1 from "../../assets/bg-img1.jpg";
 import image2 from "../../assets/bg-img2.jpg";
 import image3 from "../../assets/bg-img3.jpg";
 import HomeNav from "../../components/Homenav/Homenav";
-import { useNavigate } from "react-router-dom";
 import Searchbox from "../../components/Searchbox/Searchbox";
 
 const Landingpage = () => {
-  const navigate = useNavigate();
+ 
 
   const slides = [
     {
@@ -37,7 +36,6 @@ const Landingpage = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [searchValue, setSearchValue] = useState("");
 
   // change slide every 30 seconds
 
@@ -48,10 +46,6 @@ const Landingpage = () => {
 
     return () => clearInterval(interval);
   }, [slides.length]);
-
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value);
-  };
 
 
   return (
