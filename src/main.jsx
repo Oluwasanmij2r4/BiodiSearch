@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LandingPage from './pages/Landingpage/Landingpage';
 import ResultsPage from "./pages/Resultspage/Resultspage";
+import Upload from "./pages/Upload/Upload";
 import './index.css'
 import App from './App.jsx'
 
@@ -13,13 +14,18 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LandingPage />
+        element: <LandingPage />,
       },
 
       {
         path: "/results",
-        element: <ResultsPage />
-      }
+        element: <ResultsPage />,
+      },
+
+      {
+        path: "/upload",
+        element: <Upload />,
+      },
     ],
   },
 ]);
