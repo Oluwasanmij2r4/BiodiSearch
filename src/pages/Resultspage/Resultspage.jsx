@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { FaSearch as Searchicon } from "react-icons/fa";
 import Button from "../../components/Button/Button";
-import {fetchSpecies} from "../../api/gbifapi"
 import {parseQuery} from "../../utils/parseQuery"
 
 

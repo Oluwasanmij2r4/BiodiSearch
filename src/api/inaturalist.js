@@ -1,0 +1,27 @@
+
+export const fetchFromINaturalist = async (query) => {
+  try {
+    const res = await fetch(
+      `https://api.inaturalist.org/v1/search?q=${encodeURIComponent(
+        query
+      )}&sources=taxa`
+    );
+    const data = await res.json();
+
+    if (data.results.length === 0 || !data.results[0].record) {
+      return null;
+    }
+
+    const record = data.results[0].record;
+
+    return {
+      scientificName: record.name,
+      commonName: record.preferred_common_name || query,
+      imageUrl: record.default_photo?.medium_url || null,
+      extinct: record.extinct || "Unknown",
+    };
+  } catch (error) {
+    console.error("Error fetching from iNaturalist:", error);
+    return null;
+  }
+};
