@@ -8,14 +8,15 @@
 }
 
 .navbar{
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
+    align-items: center; */
+    padding: 1rem;
 }
 
 .navHeader{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }

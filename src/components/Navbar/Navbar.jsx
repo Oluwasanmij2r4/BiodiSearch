@@ -12,9 +12,9 @@ const Navbar = () => {
             <Searchbox />
           </div>
       </div> 
-      <div>
+      {/* <div>
         <Button text="Sign In" />
-      </div>
+      </div> */}
     </nav>
   );
 };

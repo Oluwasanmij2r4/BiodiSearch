@@ -35,7 +35,7 @@
   font-size: calc(1rem + 1vw);
 }
 
-.searchResultsFilter{
+/* .searchResultsFilter{
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -48,14 +48,38 @@
 
 .inputWrapper input:nth-of-type(2) {
     margin-left: 1rem;
+} */
+
+.loadingState{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.speciesList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin: 2rem;
+.loadingbg{
+ background-color: white;
+ padding: 1rem;
 }
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border: 10px solid;
+  border-color: var(--secondary-color-2) var(--secondary-color-2) var(--secondary-color-2) var(--secondary-color);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin{
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 .speciesCard {
    border: 1px solid #ccc;
@@ -64,12 +88,12 @@
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all .5s ease-in-out;
-    cursor: pointer;
-    margin-bottom: 2rem;
+    /* cursor: pointer; */
+    margin: 1rem;
 }
 
 .speciesCard:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -89,14 +113,3 @@
   border-radius: 8px;
 }
 
-.speciesName{
-  color: red;
-}
-
-.speciesDetails{
-  color: blue;
-}
-
-.speciesRank{
-  color: yellow;
-}

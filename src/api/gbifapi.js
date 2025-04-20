@@ -30,9 +30,7 @@ export const fetchSpeciesFromGBIF = async (scientificName) => {
 
 export const fetchOccurrenceCount = async (taxonKey) => {
   try {
-    const res = await fetch(
-      `https://api.gbif.org/v1/occurrence/search?taxon_key=${taxonKey}&limit=0`
-    );
+    const res = await fetch(`https://api.gbif.org/v1/occurrence/search?taxon_key=${taxonKey}&limit=0`);
     const data = await res.json();
 
     return data.count || 0;
@@ -41,3 +39,5 @@ export const fetchOccurrenceCount = async (taxonKey) => {
     return 0;
   }
 };
+
+

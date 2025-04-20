@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./upload.module.css";
 
+
 const Upload = () => {
   const [imageFile, setImageFile] = useState(null);
    const [highQualityFile, setHighQualityFile] = useState(null);
@@ -11,6 +12,8 @@ const Upload = () => {
   const [imageBlobId, setImageBlobId] = useState(null);
   const [highQualityBlobId, setHighQualityBlobId] = useState(null);
   const [lowQualityBlobId, setLowQualityBlobId] = useState(null);
+
+ 
 
 
 
