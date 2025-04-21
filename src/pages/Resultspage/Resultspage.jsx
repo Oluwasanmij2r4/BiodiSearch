@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { FaSearch as Searchicon } from "react-icons/fa";
 import Button from "../../components/Button/Button";
-import {parseQuery} from "../../utils/parseQuery"
 import { fetchFromINaturalist, fetchConservationStatus } from "../../api/inaturalist";
 import { fetchSpeciesFromGBIF, fetchOccurrenceCount } from "../../api/gbifapi";
 import { i } from "motion/react-client";
@@ -117,6 +116,7 @@ const ResultPage = () => {
             id: speciesData.taxonKey,
             scientificName: speciesData.scientificName,
             commonName: iNaturalistData.commonName,
+            family: speciesData.family,
             extinct: extinctData,
             rank: speciesData.rank || "Unknown",
             kingdom: speciesData.kingdom || "Unknown",
@@ -161,13 +161,12 @@ const ResultPage = () => {
               <Searchicon className={styles.searchIcon} />
               <h2 className={styles.searchText}>Search Results For: {query}</h2>
             </div>
-
           </div>
         </div>
       </div>
 
-      <div className={styles.loadingState} >
-        {loading && <p className={styles.loading} ></p>}
+      <div className={styles.loadingState}>
+        {loading && <p className={styles.loading}></p>}
         {error && <p>{error}</p>}
       </div>
 
@@ -196,9 +195,12 @@ const ResultPage = () => {
                     <span>Unknown</span>
                   )}
                 </p>
-                <p className={styles.text}>{item.rank}</p>
-                <p className={styles.text}>{item.kingdom}</p>
-                <p className={styles.text}>Occurence:{item.occurrenceCount}</p>
+                <p className={styles.text}>Rank: {item.rank}</p>
+                <p className={styles.text}>Kingdom: {item.kingdom}</p>
+                <p className={styles.text}>Family: {item.family}</p>
+                <p className={styles.text}>
+                  Occurence Count:{item.occurrenceCount}
+                </p>
                 <p className={styles.text}>Authority:{item.authority}</p>
                 <p className={styles.text}>
                   Status: {item.status} : {item.statusName}

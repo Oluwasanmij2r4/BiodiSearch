@@ -16,7 +16,10 @@ export const fetchFromINaturalist = async (query) => {
 
     return {
       scientificName: record.name,
-      commonName: record.preferred_common_name || query,
+      commonName: record.preferred_common_name
+        ? record.preferred_common_name.charAt(0).toUpperCase() +
+          record.preferred_common_name.slice(1)
+        : query.charAt(0).toUpperCase() + query.slice(1),
       imageUrl: record.default_photo?.medium_url || null,
       extinct: record.extinct ?? "Unknown",
     };
@@ -40,11 +43,20 @@ export const fetchConservationStatus = async (query) => {
 
     const conservationStatus = speciesIdData?.results?.[0]?.taxon_photos?.[0]?.taxon?.conservation_status
 
-    return{
-      authority: conservationStatus.authority || "Unknown",
-      status: conservationStatus.status || "Unknown",
-      statusName: conservationStatus.status_name
-    };
+   if (conservationStatus) {
+      return {
+        authority: conservationStatus.authority || "Unknown",
+        status: conservationStatus.status || "Unknown",
+        statusName: conservationStatus.status_name || "Unknown",
+      }; 
+    } else {
+      return {
+        authority: "Unknown",
+        status: "Not Evaluated",
+        statusName: "Not Evaluated",
+      };
+
+    }
 
  
   } catch (error) {
