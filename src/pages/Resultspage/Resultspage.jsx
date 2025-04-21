@@ -8,7 +8,7 @@ import { fetchFromINaturalist, fetchConservationStatus } from "../../api/inatura
 import { fetchSpeciesFromGBIF, fetchOccurrenceCount } from "../../api/gbifapi";
 import {
   generateSpeciesSummary,
-  applyStylesToSummary,
+  abstractSummary
 } from "../../utils/summary";
 import { fetchAiSummary } from "../../api/ai";
 import { i } from "motion/react-client";
@@ -27,8 +27,30 @@ const ResultPage = () => {
 
  
 const query = new URLSearchParams(location.search).get("query");
+const mockData = {
+  id: 123456,
+  scientificName: "Panthera leo",
+  commonName: "Lion",
+  family: "Felidae",
+  extinct: false,
+  rank: "Species",
+  kingdom: "Animalia",
+  phylum: "Chordata",
+  class: "Mammalia",
+  order: "Carnivora",
+  genus: "Panthera",
+  occurrenceCount: 98000,
+  authority: "IUCN",
+  statusName: "Vulnerable",
+  imageUrl:
+    "https://plus.unsplash.com/premium_photo-1664304310991-b43610000fc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bGlvbnxlbnwwfHwwfHx8MA%3D%3D",
+  gbifLink: "https://www.gbif.org/species/5219408",
+};
+
 
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const useMock = params.get("mock") === "true";
     if (!query) {
       alert("❌ No search query found...");
       navigate("/");
@@ -70,24 +92,26 @@ const query = new URLSearchParams(location.search).get("query");
         const extinctData = iNaturalistData.extinct !== undefined ? iNaturalistData.extinct : "Unknown";
 
 
-        setSpecies(
-          {
-            id: speciesData.taxonKey,
-            scientificName: speciesData.scientificName,
-            commonName: iNaturalistData.commonName,
-            family: speciesData.family,
-            extinct: extinctData,
-            rank: speciesData.rank || "Unknown",
-            kingdom: speciesData.kingdom || "Unknown",
-            occurrenceCount: occurrences,
-            authority: conservationStatus.authority,
-            statusName: conservationStatus.statusName,
-            imageUrl:
-              speciesImageUrl ||
-              `https://source.unsplash.com/random/300x200/?${scientificName.toLowerCase()}`,
-            gbifLink: speciesData.gbifLink,
-          },
-        );
+        setSpecies({
+          id: speciesData.taxonKey,
+          scientificName: speciesData.scientificName,
+          commonName: iNaturalistData.commonName,
+          family: speciesData.family,
+          extinct: extinctData,
+          rank: speciesData.rank || "Unknown",
+          kingdom: speciesData.kingdom || "Unknown",
+          phylum: speciesData.phylum || "Unknown",
+          class: speciesData.class || "Unknown",
+          order: speciesData.order || "Unknown",
+          genus: speciesData.genus || "Unknown",
+          occurrenceCount: occurrences,
+          authority: conservationStatus.authority,
+          statusName: conservationStatus.statusName,
+          imageUrl:
+            speciesImageUrl ||
+            `https://source.unsplash.com/random/300x200/?${scientificName.toLowerCase()}`,
+          gbifLink: speciesData.gbifLink,
+        });
         setLoading(false);
       } catch (err) {
         console.error("Error fetching species data:", err);
@@ -97,10 +121,14 @@ const query = new URLSearchParams(location.search).get("query");
     };
     
 
-  
+   if (useMock) {
+     setSpecies(mockData);
+     setLoading(false);
+     return;
+   }
 
     fetchSpeciesData();
-  }, [query, navigate]);
+  }, [query, location.search, navigate]);
 
   useEffect (() => {
     setExpanded(false);
@@ -122,12 +150,7 @@ const query = new URLSearchParams(location.search).get("query");
     setSummaryLoading(false);
 
 
-    if (result){
-      const styleSummary = applyStylesToSummary(result)
-      localStorage.setItem(key, result)
-      setAiSummary(styleSummary)
-      setExpanded(true);
-    }
+ 
   }
 
 
@@ -160,36 +183,41 @@ const query = new URLSearchParams(location.search).get("query");
         {!loading && !error && species && (
           <div>
             <div key={species.id} className={styles.speciesCard}>
-              <div>
-                {species.imageUrl && (
-                  <img src={species.imageUrl} alt={species.scientificName} />
-                )}
-              </div>
-              <h1 className={styles.text}>Common Name: {species.commonName}</h1>
-              <h2 className={styles.text}>
-                Scientific Name: {species.scientificName}
-              </h2>
+              <div className={styles.speciesCardHeader}>
+                <div className={styles.speciesImageCard}>
+                  {species.imageUrl && (
+                    <img
+                      src={species.imageUrl}
+                      alt={species.scientificName}
+                      className={styles.speciesImage}
+                    />
+                  )}
+                </div>
+                <div className={styles.speciesSideDetails}>
+                  <h1 className={styles.commonName}>{species.commonName}</h1>
+                  <p className={styles.scientificName}>
+                    Scientific Name: {species.scientificName} || Extinct:{" "}
+                    {species.extinct === true ? (
+                      <span> Yes</span>
+                    ) : species.extinct === false ? (
+                      <span>No</span>
+                    ) : (
+                      <span>Unknown</span>
+                    )}
+                  </p>
 
-              <p className={styles.text}>
-                Extinct:{" "}
-                {species.extinct === true ? (
-                  <span> Yes</span>
-                ) : species.extinct === false ? (
-                  <span>No</span>
-                ) : (
-                  <span>Unknown</span>
-                )}
-              </p>
-              <p className={styles.text}>Rank: {species.rank}</p>
-              <p className={styles.text}>Kingdom: {species.kingdom}</p>
-              <p className={styles.text}>Family: {species.family}</p>
+                  <p className={styles.abstract}>Abstract Summary</p>
+                  <p className={styles.abstractText}>
+                    {abstractSummary(species)}
+                  </p>
+                </div>
+              </div>
+
               <p className={styles.text}>
                 Occurence Count:{species.occurrenceCount}
               </p>
               <p className={styles.text}>Authority:{species.authority}</p>
-              <p className={styles.text}>
-                Status: {species.statusName}
-              </p>
+              <p className={styles.text}>Status: {species.statusName}</p>
 
               <a
                 href={species.gbifLink}
@@ -200,23 +228,68 @@ const query = new URLSearchParams(location.search).get("query");
               </a>
             </div>
 
+            <div className={styles.taxonomy}>
+              <table>
+                <caption>TAXONOMY</caption>
+
+                <tbody className={styles.taxonomyTableTop}>
+                  <tr className={styles.row}>
+                    <td>KINGDOM</td>
+                    <td>PHYLUM</td>
+                    <td>CLASS</td>
+                  </tr>
+
+                  <tr className={styles.row2}>
+                    <th>{species.kingdom}</th>
+                    <th>{species.phylum}</th>
+                    <th>{species.class}</th>
+                  </tr>
+                </tbody>
+
+                <tbody className={styles.taxonomyTableLow}>
+                  <tr className={styles.row}>
+                    <td>ORDER</td>
+                    <td>FAMILY</td>
+                    <td>GENUS</td>
+                  </tr>
+
+                  <tr className={styles.row2}>
+                    <th>{species.order}</th>
+                    <th>{species.family}</th>
+                    <th>{species.genus}</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <div className={styles.summaryCard}>
               {/* ... your existing species info display ... */}
 
               <h3>Summary</h3>
-              <p>{generateSpeciesSummary(species)}</p>
+              <p className={styles.templateSummary}>
+                {generateSpeciesSummary(species)}
+              </p>
 
               {!expanded && (
-                <button onClick={handleReadMore} disabled={summaryLoading}>
-                  {summaryLoading ? "Loading..." : "Get Ai-Summary"}
-                </button>
+                <Button
+                  onClick={handleReadMore}
+                  disabled={summaryLoading}
+                  text={summaryLoading ? "Loading..." : "Get Ai-Summary"}
+                />
               )}
 
               {expanded && aiSummary && (
                 <div>
-                  <p>{aiSummary}</p>
+                  <p className={styles.aiSummary}>{aiSummary}</p>
+
+                  <Button
+                    onClick={() => setExpanded(false)}
+                    text="Close"
+                  />
                 </div>
               )}
+
+              <div></div>
             </div>
           </div>
         )}

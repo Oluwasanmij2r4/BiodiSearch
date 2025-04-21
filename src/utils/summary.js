@@ -21,21 +21,29 @@ export const generateSpeciesSummary = (species) => {
   return summary;
 };
 
+// According to the 2023 assessment by the IUCN Red List, Panthera leo (lion) is categorized as Vulnerable, having met the A2abcd criteria for population decline and habitat threat.
 
-export const applyStylesToSummary = (summary, species) => {
-  const { commonName, scientificName } = species;
+export const abstractSummary = (species) => {
+  if (!species) return "";
+  const {
+    scientificName,
+    commonName,
+    statusName,
+    occurrenceCount,
+    kingdom,
+    extinct,
+  } = species;
 
-  // Replace the common name with a class name
-  summary = summary.replace(
-    new RegExp(`(${commonName})`, "gi"), // Match the common name in the summary
-    `<span class="summaryText">$1</span>`
-  );
-
-  // Replace the scientific name with a class name
-  summary = summary.replace(
-    new RegExp(`(${scientificName})`, "gi"), // Match the scientific name in the summary
-    `<span class="summaryText">$1</span>`
-  );
-
-  return summary;
+  if(kingdom === "Animalia") {
+    let summary = `According to the assessment by the IUCN Red List, ${scientificName} (${commonName}) is categorized as ${statusName}`;
+      if (extinct) {
+        summary += ` This species is believed to be extinct.`;
+      } else {
+        summary += ` It is currently listed as ${statusName.toUpperCase()}, with over ${occurrenceCount.toLocaleString()} recorded occurrences.`;
+      }
+       return summary;
+  }
+  return "";
+ 
 };
+

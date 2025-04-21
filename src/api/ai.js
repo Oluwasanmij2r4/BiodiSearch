@@ -8,13 +8,15 @@ export const fetchAiSummary = async( species) =>{
         occurrenceCount,
 } = species;
 
-const prompt = `Write a short 5–10 sentence educational summary for high school students about this species:
+const prompt = `Imagine you're a student and I am your teacher, I am given you on an assignment 'Write a short 10–20 sentence educational summary for high school students about this species:
 - Scientific Name: ${scientificName}
 - Common Name: ${commonName}
 - Kingdom: ${kingdom}
 - Family: ${family}
 - Status: ${statusName}
-- Occurrence Count: ${occurrenceCount}
+- Occurrence Count: ${occurrenceCount}'
+
+provide answer like you will in a normal setting. Also don't add any title, just go straight to your answer.
 `;
 
 try {
@@ -27,7 +29,7 @@ try {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "nvidia/llama-3.3-nemotron-super-49b-v1:free",
+      model: "meta-llama/llama-4-maverick:free",
       prompt: `${prompt}`,
     }),
   });

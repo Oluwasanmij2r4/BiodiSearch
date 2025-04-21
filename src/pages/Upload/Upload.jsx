@@ -75,6 +75,38 @@ const Upload = () => {
 
   return (
     <div className={styles.uploadContainer}>
+      <table>
+        <caption>Taxonomy</caption>
+        <div>
+          <tr>
+            <tr>genus</tr>
+            <th>Family</th>
+          </tr>
+          <tr>
+            <th>Family</th>
+            <tr>genus</tr>
+          </tr>
+          <tr>
+            <th>Family</th>
+            <tr>genus</tr>
+          </tr>
+        </div>
+
+        <div>
+          <tr>
+            <th>Family</th>
+            <tr>genus</tr>
+          </tr>
+          <tr>
+            <th>Family</th>
+            <tr>genus</tr>
+          </tr>
+          <tr>
+            <th>Family</th>
+            <tr>genus</tr>
+          </tr>
+        </div>
+      </table>
       <div className={styles.uploadContent}>
         <div className={styles.uploadCard}>
           <div className={styles.uploadForm}>
@@ -100,7 +132,9 @@ const Upload = () => {
           <button
             onClick={uploadToWalrus}
             className={styles.uploadButton}
-            disabled={!lowQualityFile || !highQualityFile || !imageFile || loading}
+            disabled={
+              !lowQualityFile || !highQualityFile || !imageFile || loading
+            }
           >
             {loading ? "Uploading..." : "Upload"}
           </button>
@@ -125,8 +159,8 @@ const Upload = () => {
                 src={`https://aggregator.walrus-testnet.walrus.space/v1/blobs/${highQualityBlobId}`}
                 controls
               ></audio>
-                        </div>
             </div>
+          </div>
         )}
       </div>
     </div>

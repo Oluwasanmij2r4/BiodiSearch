@@ -55,3 +55,27 @@
 .uploadExample img{
     max-width: 200px;
 }
+
+
+table{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+table div{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+table div tr th{
+font-size: 2rem;
+font-weight: lighter;
+}
+
+table div tr{
+font-size: 2rem;
+text-transform: capitalize;
+}
+
