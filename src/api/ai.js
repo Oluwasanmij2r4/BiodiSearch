@@ -4,16 +4,16 @@ export const fetchAiSummary = async( species) =>{
         commonName,
         kingdom,
         family,
-        status,
+        statusName,
         occurrenceCount,
 } = species;
 
-const prompt = `Write a short 2–3 sentence educational summary for high school students about this species:
+const prompt = `Write a short 5–10 sentence educational summary for high school students about this species:
 - Scientific Name: ${scientificName}
 - Common Name: ${commonName}
 - Kingdom: ${kingdom}
 - Family: ${family}
-- Status: ${status}
+- Status: ${statusName}
 - Occurrence Count: ${occurrenceCount}
 `;
 
@@ -27,7 +27,7 @@ try {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "nvidia/llama-3.1-nemotron-nano-8b-v1:free",
+      model: "nvidia/llama-3.3-nemotron-super-49b-v1:free",
       prompt: `${prompt}`,
     }),
   });

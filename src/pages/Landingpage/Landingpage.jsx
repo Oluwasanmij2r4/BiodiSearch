@@ -2,8 +2,6 @@ import styles from "./landingpage.module.css";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, color } from "framer-motion";
 import { image, text } from "motion/react-client";
-import image1 from "../../assets/bg-img1.jpg";
-import image2 from "../../assets/bg-img2.jpg";
 import image3 from "../../assets/bg-img3.jpg";
 import HomeNav from "../../components/Homenav/Homenav";
 import Searchbox from "../../components/Searchbox/Searchbox";
@@ -13,7 +11,8 @@ const Landingpage = () => {
 
   const slides = [
     {
-      image: image1,
+      image:
+        "https://images.unsplash.com/photo-1669338301909-ef7424917c38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdpbGRsaWZlJTIwZWNvc3lzdGVtfGVufDB8fDB8fHww",
       text: "Explore Life on Earth",
       subtitle:
         "Search real-time species data for your next research or school project",
@@ -21,7 +20,8 @@ const Landingpage = () => {
       subtitleClass: styles.subtitle,
     },
     {
-      image: image2,
+      image:
+        "https://plus.unsplash.com/premium_photo-1706401147779-4ca3aeb409b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJhY3RlcmlhJTIwdW5kZXIlMjBtaWNyb3Njb3BlfGVufDB8fDB8fHww",
       text: "From Curiosity to Research",
       subtitle: "Discover, save, and cite species using open biodiversity data",
       textClass: styles.text,

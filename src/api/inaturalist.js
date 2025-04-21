@@ -46,13 +46,11 @@ export const fetchConservationStatus = async (query) => {
    if (conservationStatus) {
       return {
         authority: conservationStatus.authority || "Unknown",
-        status: conservationStatus.status || "Unknown",
         statusName: conservationStatus.status_name || "Unknown",
       }; 
     } else {
       return {
         authority: "Unknown",
-        status: "Not Evaluated",
         statusName: "Not Evaluated",
       };
 
