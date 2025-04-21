@@ -11,6 +11,7 @@ import {
 import { fetchSpeciesFromGBIF, fetchOccurrenceCount } from "../../api/gbifapi";
 import { generateSpeciesSummary, abstractSummary } from "../../utils/summary";
 import { fetchAiSummary } from "../../api/ai";
+import Savespecies from "../Savespecies/Savespecies";
 import { i } from "motion/react-client";
 
 const Speciescard = () => {
@@ -22,6 +23,12 @@ const Speciescard = () => {
   const [expanded, setExpanded] = useState(false);
   const [aiSummary, setAiSummary] = useState(null);
   const [summaryLoading, setSummaryLoading] = useState(false);
+  const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
+const [selectedSpecies, setSelectedSpecies] = useState(null);
+const handleOpenSaveModal = (species) => {
+  setSelectedSpecies(species);
+  setIsSaveModalOpen(true);
+};
 
   const query = new URLSearchParams(location.search).get("query");
   const mockData = {
@@ -163,8 +170,24 @@ const Speciescard = () => {
                     />
                   )}
                 </div>
-                <div className={styles.speciesSideDetails}>
-                  <h1 className={styles.commonName}>{species.commonName}</h1>
+                <div>
+                  <div className={styles.saveSpecieCard}>
+                    <h1 className={styles.commonName}>{species.commonName}</h1>
+<div className={styles.saveButton}>
+    
+                        <Button
+                          onClick={() => handleOpenSaveModal(species)}
+                          text="Save Specie"
+                          btnClass="secondary"
+                        />
+</div>
+
+                    <Savespecies
+                      isOpen={isSaveModalOpen}
+                      onClose={() => setIsSaveModalOpen(false)}
+                      species={selectedSpecies}
+                    />
+                  </div>
                   <p className={styles.scientificName}>
                     Scientific Name: {species.scientificName} || Extinct:{" "}
                     {species.extinct === true ? (

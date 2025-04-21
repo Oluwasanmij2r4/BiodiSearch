@@ -75,38 +75,7 @@ const Upload = () => {
 
   return (
     <div className={styles.uploadContainer}>
-      <table>
-        <caption>Taxonomy</caption>
-        <div>
-          <tr>
-            <tr>genus</tr>
-            <th>Family</th>
-          </tr>
-          <tr>
-            <th>Family</th>
-            <tr>genus</tr>
-          </tr>
-          <tr>
-            <th>Family</th>
-            <tr>genus</tr>
-          </tr>
-        </div>
-
-        <div>
-          <tr>
-            <th>Family</th>
-            <tr>genus</tr>
-          </tr>
-          <tr>
-            <th>Family</th>
-            <tr>genus</tr>
-          </tr>
-          <tr>
-            <th>Family</th>
-            <tr>genus</tr>
-          </tr>
-        </div>
-      </table>
+    
       <div className={styles.uploadContent}>
         <div className={styles.uploadCard}>
           <div className={styles.uploadForm}>

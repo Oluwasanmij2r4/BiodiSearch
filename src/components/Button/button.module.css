@@ -19,3 +19,25 @@
 .primary:active {
   transform: translateY(0);
 }
+
+.secondary{
+  padding: 8px 1rem;
+   background-color: var(--secondary-color);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.secondary:hover {
+  background-color: var(--secondary-color-2);
+  transform: translateY(-2px);
+}
+
+.secondary:active {
+  transform: translateY(0);
+}
