@@ -8,35 +8,41 @@ Welcome to the Biodiversity Research Assistant, a lightweight, browser-based web
 ## 🧠 Key Features
 
 **✏️ Auto-Summary Generator**
+
 The app includes an automatic summary feature that condenses scientific data into a 2–3 sentence paragraph. It highlights a species’ traits, classification, and global distribution in easy-to-understand language. This feature is ideal for students who need quick notes or short descriptions in their research papers.
 
 **📌 Research Workspace ("My Species List")**
+
 Users can save species they are studying to a personal list, and take notes directly in the browser.
 All notes and saved data persist using localStorage, with zero login required. Once ready, users can export everything — including summaries and images — into a downloadable PDF.
 
 **🌍 Distribution Map**
+
 Each species comes with an interactive Leaflet.js map displaying global observation data pulled from the GBIF Occurrence API. This visualization gives researchers a better understanding of where species are found across the globe.
 
 
 ## 🔎 How It Works
 
 **1. Search by Species Name**
+
 - Users can enter either a common name (e.g., “lion”) or a scientific name (e.g., Panthera leo).
 - If a common name is entered, the app uses the iNaturalist API to resolve it to a scientific name and fetch an image.
 - It then uses the GBIF API to fetch structured data like classification, observation count, and more.
 
 **2. Display Results**
+
 - Each result card includes: 🖼 Species image || 🧬 Scientific and common names ||🧪 Taxonomic hierarchy || 🌍 GBIF observation count || 🔗 Link to the GBIF species page
 - Users can then choose to save the species to their personal research list.
 
 **3. 📄 PDF Report Generator**
+
 - One of the app’s highlights is the PDF export feature. A single click will create a polished report with:
 - A cover title
 - Each species' name, image, and core metadata
 - Abstract summary and AI-generated summary (if available)
 
 
-## 💡 Why EcoScholar?**
+## 💡 Why EcoScholar?
 
 Traditional biodiversity tools are powerful, but not always student-friendly. EcoScholar bridges the gap between raw scientific data and practical research needs. It’s designed with learners and early-stage researchers in mind, giving them a simplified way to:
 - Search for species by name (common or scientific)
@@ -44,6 +50,13 @@ Traditional biodiversity tools are powerful, but not always student-friendly. Ec
 - Save important species with notes
 - Export research in a clean, formatted PDF
 - Visualize global distribution without GIS software
+
+## 📹 Demo Video
+
+🎥 **Watch EcoScholar in action**:  
+🔗 [Click to watch demo](https://drive.google.com/file/d/1iPDSo-HGLqobvnDMSbpd1HfrI6q5eYg5/view?usp=drive_link)
+
+---
 
 
 ## ⚙️ Installation & Setup
@@ -102,8 +115,9 @@ npm run dev
 
 ## 🔗 Links
 - [Live Demo](https://eco-scholar-1h6g.vercel.app/)
-- [Demo Video](https://drive.google.com/file/d/1iPDSo-HGLqobvnDMSbpd1HfrI6q5eYg5/view?usp=drive_link)
+
 - 📁 Source files: Available in the [GitHub Repository](https://github.com/Oluwasanmij2r4/EcoScholar)
+
 - 🗨️ Discord: [@Loverboi9788](https://discordapp.com/users/loverboi9788)
 
 
