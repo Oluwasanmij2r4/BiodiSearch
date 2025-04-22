@@ -1,6 +1,6 @@
 .logo{
     font-family: var(--font-logo);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.75rem;
     background: linear-gradient(to right, #7bd4a0, #ffffff, #5ae293);
   -webkit-background-clip: text;
@@ -8,8 +8,18 @@
 }
 
 .navbar{
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
+    padding: 1rem;
 }
 
+.navHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width:1200px) {
+    .searchBox{
+        display: none;
+    }
+}
