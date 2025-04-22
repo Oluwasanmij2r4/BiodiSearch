@@ -1,5 +1,5 @@
 export const fetchAiSummary = async( species) =>{
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
 
     const {
         scientificName,
