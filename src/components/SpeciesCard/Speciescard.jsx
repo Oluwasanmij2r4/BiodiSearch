@@ -147,6 +147,14 @@ const handleOpenSaveModal = (species) => {
     setSummaryLoading(true);
     const result = await fetchAiSummary(species);
     setSummaryLoading(false);
+
+     if (result) {
+       setAiSummary(result);
+       setExpanded(true);
+       localStorage.setItem(key, result); // Cache it
+     } else {
+       setAiSummary("Sorry, we couldn't generate a summary at the moment.");
+     }
   };
 
   const handleDownloadReport = async () => {
@@ -247,31 +255,28 @@ const handleOpenSaveModal = (species) => {
                 <caption>TAXONOMY</caption>
 
                
-                  <tr className={styles.rowUp}>
-                    <td>KINGDOM</td>
-                    <td>PHYLUM</td>
-                    <td>CLASS</td>
-                  </tr>
-
-                  <tr className={styles.rowMid}>
-                    <th>{species.kingdom}</th>
-                    <th>{species.phylum}</th>
-                    <th>{species.class}</th>
-                  </tr>
-               
-
-               
-                  <tr className={styles.rowLow}>
-                    <td>ORDER</td>
-                    <td>FAMILY</td>
-                    <td>GENUS</td>
-                  </tr>
-
-                  <tr className={styles.rowEnd}>
-                    <th>{species.order}</th>
-                    <th>{species.family}</th>
-                    <th>{species.genus}</th>
-                  </tr>
+                  <tbody>
+                    <tr className={styles.rowUp}>
+                      <td>KINGDOM</td>
+                      <td>PHYLUM</td>
+                      <td>CLASS</td>
+                    </tr>
+                    <tr className={styles.rowMid}>
+                      <th>{species.kingdom}</th>
+                      <th>{species.phylum}</th>
+                      <th>{species.class}</th>
+                    </tr>
+                    <tr className={styles.rowLow}>
+                      <td>ORDER</td>
+                      <td>FAMILY</td>
+                      <td>GENUS</td>
+                    </tr>
+                    <tr className={styles.rowEnd}>
+                      <th>{species.order}</th>
+                      <th>{species.family}</th>
+                      <th>{species.genus}</th>
+                    </tr>
+                  </tbody>
              
               </table>
             </div>
