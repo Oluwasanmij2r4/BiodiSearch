@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./navbar.module.css";
-import Button from "../Button/Button";
 import Searchbox from "../Searchbox/Searchbox";
 
 const Navbar = () => {
@@ -12,9 +11,7 @@ const Navbar = () => {
             <Searchbox />
           </div>
       </div> 
-      {/* <div>
-        <Button text="Sign In" />
-      </div> */}
+   
     </nav>
   );
 };

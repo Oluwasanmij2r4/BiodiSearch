@@ -7,7 +7,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.navbar{
+.navHeader{
     display: flex;
     justify-content: space-between;
     padding: 2rem;
