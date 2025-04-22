@@ -25,7 +25,7 @@ try {
     method: "POST",
     headers: {
       Authorization:
-        "Bearer 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",
+        "Bearer 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",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
