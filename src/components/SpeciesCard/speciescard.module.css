@@ -64,6 +64,9 @@ width: 100%;
 }
 
 .saveButton{
+  display: flex;
+  flex-direction: column;
+  gap:.5rem;
     margin-left: auto;
     padding-right: 2rem;
 }
@@ -210,3 +213,5 @@ table caption{
   font-size: 17px;
   padding-bottom: 1rem;
 }
+
+

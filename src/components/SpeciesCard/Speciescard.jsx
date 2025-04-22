@@ -12,6 +12,7 @@ import { fetchSpeciesFromGBIF, fetchOccurrenceCount } from "../../api/gbifapi";
 import { generateSpeciesSummary, abstractSummary } from "../../utils/summary";
 import { fetchAiSummary } from "../../api/ai";
 import Savespecies from "../Savespecies/Savespecies";
+import { reportToPdf } from "../../utils/pdfExport";
 import { i } from "motion/react-client";
 
 const Speciescard = () => {
@@ -147,6 +148,11 @@ const handleOpenSaveModal = (species) => {
     setSummaryLoading(false);
   };
 
+  const handleDownloadReport = async () => {
+    const speciesList = [species]; 
+   await reportToPdf(speciesList, aiSummary); 
+  };
+
   return (
     <div className={styles.speciesCardWrapper}>
       {(loading || error) && (
@@ -173,14 +179,19 @@ const handleOpenSaveModal = (species) => {
                 <div>
                   <div className={styles.saveSpecieCard}>
                     <h1 className={styles.commonName}>{species.commonName}</h1>
-<div className={styles.saveButton}>
-   
-                        <Button
-                          onClick={() => handleOpenSaveModal(species)}
-                          text="Save Specie"
-                          btnClass="secondary"
-                        />
-</div>
+                    <div className={styles.saveButton}>
+                      <Button
+                        onClick={() => handleOpenSaveModal(species)}
+                        text="Save Report"
+                        btnClass="secondary"
+                      />
+
+                      <Button
+                        onClick={handleDownloadReport}
+                        text="Download Report"
+                        btnClass="secondary"
+                      />
+                    </div>
 
                     <Savespecies
                       isOpen={isSaveModalOpen}
