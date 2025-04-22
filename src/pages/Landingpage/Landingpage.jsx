@@ -6,8 +6,8 @@ import image3 from "../../assets/bg-img3.jpg";
 import HomeNav from "../../components/Homenav/Homenav";
 import Searchbox from "../../components/Searchbox/Searchbox";
 
+
 const Landingpage = () => {
- 
 
   const slides = [
     {
@@ -104,8 +104,7 @@ const Landingpage = () => {
         </div>
 
         <p className={styles.formText}>
-          Example: "Birds in Kenya │ Marine life in the Philippines │ Endemic
-          plants in Madagascar"
+          Example: "Birds │ Lion │ Agaricus | Mushrooms"
         </p>
       </div>
 

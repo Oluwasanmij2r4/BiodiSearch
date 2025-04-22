@@ -1,6 +1,6 @@
 import jsPDF from "jspdf";
 
-export const exportToPDF = (speciesList) => {
+export const exportToPdf = (speciesList) => {
   const doc = new jsPDF();
   let y = 10;
 

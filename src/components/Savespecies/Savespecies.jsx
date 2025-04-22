@@ -23,10 +23,10 @@ const Savespecies = ({isOpen, onClose, species}) => {
     }, [isOpen, onClose]);
 
     const handleSave = () => {
-        const existing = JSON.parse (localStorage.getItem(SpeciesList)) ||[];
+        const existing = JSON.parse (localStorage.getItem("speciesList")) ||[];
 
         const filtered = existing.filter (
-            (item) => item.scientificName != species.scientificName
+            (item) => item.scientificName !== species.scientificName
         );
 
           filtered.push({
@@ -34,7 +34,7 @@ const Savespecies = ({isOpen, onClose, species}) => {
             commonName: species.commonName,
             scientificName: species.scientificName,
             imageUrl: species.imageUrl,
-            rank: species.rank,
+            kingdom: species.kingdom,
             note: note,
           });
           localStorage.setItem("speciesList", JSON.stringify(filtered));

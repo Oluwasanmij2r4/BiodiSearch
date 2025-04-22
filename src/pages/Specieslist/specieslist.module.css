@@ -1,0 +1,127 @@
+.speciesListWrapper{
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.speciesListHeader{
+   padding: 2rem;
+    background-color: var(--header-color);
+     display: flex;
+     justify-content: space-between;
+    align-items: center;
+}
+
+.speciesListHero{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.heroText{
+    font-family: var(--font-logo);
+    font-weight: 700;
+    font-size: 1.75rem;
+    background: linear-gradient(to right, #7bd4a0, #ffffff, #5ae293);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroIcon{
+    font-size: 1.5rem;
+}
+
+.noSpecie{
+    text-align: center;
+    margin: auto 0;
+}
+
+.speciesListCard{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 8px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.speciesListImageCard{
+    width: 150px;
+}
+
+.speciesListImage{
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.speciesListDetailsCard{
+    flex-grow: 1;
+}
+
+.heroCommonName{
+  color: var(--secondary-color-2);
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.heroScientificName{
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.heroKingdom{
+    font-style: italic;
+  font-size: 1.25rem;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.dot{
+    color: var(--secondary-color-2);
+    font-size: 1.5rem;
+}
+
+.more{
+    display: flex;
+    align-items: center;
+}
+
+textarea{
+    resize: none;
+    padding: 4px;
+    font-weight: 400;
+    font-family: var(--body-font);
+    width: 400px;
+    height: 100px;
+}
+
+.readMoreIcon {
+  cursor: pointer;
+  color: #007bff;
+  font-size: 2rem;
+}
+
+.textareaBtn{
+    margin: 8px 0;
+    display: flex;
+    gap: 8px;
+}
+
+.listNote{
+    margin-bottom: 8px;
+}
+
+.noteBtn{
+    padding: 1rem 0;
+}
+
+.editRemovebtn{
+    display: flex;
+    gap: 8px;
+}
+
+.exportCopybtn{
+    display: flex;
+    justify-content: end;
+    gap: .75rem;
+}

@@ -6,6 +6,7 @@ import ResultsPage from "./pages/Resultspage/Resultspage";
 import Upload from "./pages/Upload/Upload";
 import './index.css'
 import App from './App.jsx'
+import Specieslist from './pages/Specieslist/Specieslist';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
       {
         path: "/upload",
         element: <Upload />,
+      },
+
+      {
+        path: "/SaveList",
+        element: <Specieslist />,
       },
     ],
   },

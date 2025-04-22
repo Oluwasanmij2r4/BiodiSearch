@@ -16,7 +16,8 @@ body {
    --primary-color: #ffffff;
    --secondary-color: #488f66;
    --secondary-color-2: rgba(8, 117, 8, 0.9);
-   --header-bg-color: rgb(63, 60, 60);
+   --header-color: rgb(63, 60, 60);
+   --bg-color: rgba(218, 212, 212, 0.829);
   --title-font: 'Playfair', serif;
   --body-font: 'Inter', sans-serif;
   --header-font: 'Roboto', sans-serif;

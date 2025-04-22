@@ -3,13 +3,13 @@
   flex-direction: column;
   height: 100vh;
   max-width: 100%;
-  background-color: rgba(218, 212, 212, 0.829);
+  background-color: var(--bg-color);
   overflow-x: hidden;
   font-family: var(--body-font);
 }
 
 .header {
-  background-color: var(--header-bg-color);
+  background-color: var(--header-color);
 }
 
 .searchResults {

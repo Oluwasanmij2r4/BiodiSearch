@@ -75,17 +75,17 @@
 
 @media (min-width: 768px) {
   .heading {
-    font-size: 3.70rem;
+    font-size: 3.5rem;
   }
   
   .subtitle {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 }
 
 .formText{
   text-align: center;
-  padding-top: 2rem;
+  padding-top: 1rem;
   font-style: italic;
   color: var(--primary-color);
 }
