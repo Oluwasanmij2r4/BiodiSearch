@@ -246,33 +246,33 @@ const handleOpenSaveModal = (species) => {
               <table>
                 <caption>TAXONOMY</caption>
 
-                <tbody className={styles.taxonomyTableTop}>
-                  <tr className={styles.row}>
+               
+                  <tr className={styles.rowUp}>
                     <td>KINGDOM</td>
                     <td>PHYLUM</td>
                     <td>CLASS</td>
                   </tr>
 
-                  <tr className={styles.row2}>
+                  <tr className={styles.rowMid}>
                     <th>{species.kingdom}</th>
                     <th>{species.phylum}</th>
                     <th>{species.class}</th>
                   </tr>
-                </tbody>
+               
 
-                <tbody className={styles.taxonomyTableLow}>
-                  <tr className={styles.row}>
+               
+                  <tr className={styles.rowLow}>
                     <td>ORDER</td>
                     <td>FAMILY</td>
                     <td>GENUS</td>
                   </tr>
 
-                  <tr className={styles.row2}>
+                  <tr className={styles.rowEnd}>
                     <th>{species.order}</th>
                     <th>{species.family}</th>
                     <th>{species.genus}</th>
                   </tr>
-                </tbody>
+             
               </table>
             </div>
 
