@@ -13,6 +13,7 @@ import { generateSpeciesSummary, abstractSummary } from "../../utils/summary";
 import { fetchAiSummary } from "../../api/ai";
 import Savespecies from "../Savespecies/Savespecies";
 import { reportToPdf } from "../../utils/pdfExport";
+import SpeciesMap from "../Speciesmap/Speciesmap";
 import { i } from "motion/react-client";
 
 const Speciescard = () => {
@@ -273,6 +274,15 @@ const handleOpenSaveModal = (species) => {
               </table>
             </div>
 
+            <div className={styles.mapContainer} >
+              <h2 className={styles.globalText} >
+                🌍 Global Distribution of <em>{species.scientificName}</em>
+              </h2>
+              <div className={styles.mapCaad}>
+                <SpeciesMap taxonKey={5219408} />
+              </div>
+            </div>
+
             <div className={styles.summaryCard}>
               {/* ... your existing species info display ... */}
 
@@ -296,8 +306,6 @@ const handleOpenSaveModal = (species) => {
                   <Button onClick={() => setExpanded(false)} text="Close" />
                 </div>
               )}
-
-              <div></div>
             </div>
           </div>
         )}

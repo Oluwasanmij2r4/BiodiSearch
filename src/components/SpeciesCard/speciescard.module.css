@@ -1,4 +1,4 @@
-.loadingState{
+.loadingState {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,71 +6,71 @@
   height: 60vh;
 }
 
-.loadingbg{
- background-color: white;
- padding: 1rem;
+.loadingbg {
+  background-color: white;
+  padding: 1rem;
 }
 
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 60px;
   width: 60px;
   border: 10px solid;
-  border-color: var(--secondary-color-2) var(--secondary-color-2) var(--secondary-color-2) var(--secondary-color);
+  border-color: var(--secondary-color-2) var(--secondary-color-2)
+    var(--secondary-color-2) var(--secondary-color);
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
 }
 
-@keyframes spin{
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-
-.speciesCard, .summaryCard, .taxonomy {
-   border: 1px solid #ccc;
-    padding: 1rem;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: .5rem 0;
+.speciesCard,
+.summaryCard,
+.taxonomy {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 0;
 }
 
-.speciesCardHeader{
+.speciesCardHeader {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
-@media (max-width:800px) {
-    .speciesCardHeader{
-        display: block;
-    }
+@media (max-width: 800px) {
+  .speciesCardHeader {
+    display: block;
+  }
 }
 
-
-
-.speciesImage{
-width: 100%;
+.speciesImage {
+  width: 100%;
 }
 
-.saveSpecieCard{
-    display: flex;
-    border-bottom: 2px solid #e4e2e262;
-    align-items: center;
+.saveSpecieCard {
+  display: flex;
+  border-bottom: 2px solid #e4e2e262;
+  align-items: center;
 }
 
-.saveButton{
+.saveButton {
   display: flex;
   flex-direction: column;
-  gap:.5rem;
-    margin-left: auto;
-    padding-right: 2rem;
+  gap: 0.5rem;
+  margin-left: auto;
+  padding-right: 2rem;
 }
-.commonName{
+.commonName {
   color: var(--secondary-color-2);
   font-size: 2.5rem;
   padding-bottom: 8px;
@@ -78,7 +78,7 @@ width: 100%;
   font-weight: 800;
 }
 
-.scientificName{
+.scientificName {
   font-style: italic;
   font-size: 1.25rem;
   padding: 1rem 0;
@@ -86,21 +86,21 @@ width: 100%;
   border-bottom: 2px solid #ccc;
 }
 
-.abstract{
+.abstract {
   padding-top: 1rem;
   padding-bottom: 1.5rem;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.abstractText{
+.abstractText {
   line-height: 1.25;
 }
 .speciesCard:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.ocurrenceData ul{
+.ocurrenceData ul {
   display: flex;
   justify-content: space-between;
   list-style: none;
@@ -108,18 +108,18 @@ width: 100%;
 }
 
 @media (max-width: 700px) {
-    .ocurrenceData ul{
-        display: block;
-        border: 1px solid var(--secondary-color-2);
-        padding: 2rem;
-    }
+  .ocurrenceData ul {
+    display: block;
+    border: 1px solid var(--secondary-color-2);
+    padding: 2rem;
+  }
 
-    .ocurrenceData li {
-        margin-bottom: 8px;
-    }
+  .ocurrenceData li {
+    margin-bottom: 8px;
+  }
 }
 
-.ocurrenceData li:hover{
+.ocurrenceData li:hover {
   cursor: pointer;
   color: var(--secondary-color-2);
 }
@@ -128,11 +128,11 @@ width: 100%;
   text-decoration: none;
 }
 
-.ocurrenceData a:hover{
+.ocurrenceData a:hover {
   background-color: var(--secondary-color-2);
   color: white;
   font-weight: 500;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .speciesImageWrapper {
@@ -146,19 +146,18 @@ width: 100%;
 
 .speciesImage {
   width: 250px;
- object-fit: contain;
+  object-fit: contain;
   height: 200px;
   border-radius: 8px;
 }
 
-
-.taxonomy{
+.taxonomy {
   margin: 1rem;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 
-table caption{
+table caption {
   text-align: left;
   font-size: 2rem;
   font-weight: 700;
@@ -166,52 +165,66 @@ table caption{
   padding-bottom: 1rem;
 }
 
-
-.taxonomyTableTop{
+.taxonomyTableTop {
   border-top: 2px solid var(--secondary-color);
-  border-bottom: 2px solid #ccc; 
+  border-bottom: 2px solid #ccc;
   padding: 1rem 0;
   margin-bottom: 1rem;
 }
 
-
-.taxonomyTableTop tr, .taxonomyTableLow tr{
+.taxonomyTableTop tr,
+.taxonomyTableLow tr {
   display: flex;
   justify-content: space-between;
 }
 
-.row td{
-   font-size: 1rem;
+.row td {
+  font-size: 1rem;
   text-align: center;
   font-weight: 300;
   margin-bottom: 10px;
 }
 
-.row2 th{
+.row2 th {
   font-size: 1.5rem;
   color: var(--secondary-color-2);
   text-align: center;
 }
 
+.globalText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
 
-.summaryCard{
+.summaryCard {
   padding: 2rem 1.5rem;
 }
 
-.summaryCard h3{
+.summaryCard h3 {
   color: var(--secondary-color-2);
   font-size: 1.5rem;
 }
 
-.templateSummary{
+.templateSummary {
   padding: 1rem 0;
   line-height: 1.3;
 }
 
-.aiSummary{
+.aiSummary {
   line-height: 1.3;
   font-size: 17px;
   padding-bottom: 1rem;
 }
 
+.mapContainer{
+  background-color: var(--primary-color);
+  padding: 2rem;
+}
 
+.mapCard {
+  height: auto;
+  max-width: 100vh;
+  overflow: auto;
+  
+}
