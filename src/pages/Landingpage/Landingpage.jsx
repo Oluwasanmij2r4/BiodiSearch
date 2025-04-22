@@ -104,7 +104,7 @@ const Landingpage = () => {
         </div>
 
         <p className={styles.formText}>
-          Example: "Birds │ Lion │ Agaricus | Mushrooms"
+          Example: Birds │ Lion │ Agaricus | Mushrooms 
         </p>
       </div>
 
