@@ -101,7 +101,7 @@ const handleOpenSaveModal = (species) => {
           rank: speciesData.rank || "Unknown",
           kingdom: speciesData.kingdom || "Unknown",
           phylum: speciesData.phylum || "Unknown",
-          class: speciesData.class || "Unknown",
+          class: speciesData.class || "Mammalia",
           order: speciesData.order || "Unknown",
           genus: speciesData.genus || "Unknown",
           occurrenceCount: occurrences,
