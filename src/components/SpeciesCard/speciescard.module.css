@@ -40,11 +40,14 @@
   margin: 0.5rem 0;
 }
 
+
+
 .speciesCardHeader {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 4rem;
+  width: 100%;
 }
 
 @media (max-width: 800px) {
@@ -54,13 +57,16 @@
 }
 
 .speciesImage {
-  width: 100%;
+ width: 15vw;
 }
 
 .saveSpecieCard {
   display: flex;
   border-bottom: 2px solid #e4e2e262;
   align-items: center;
+  justify-content: space-between;
+   padding-bottom: 8px;
+   width: 75vw;
 }
 
 .saveButton {
@@ -70,10 +76,11 @@
   margin-left: auto;
   padding-right: 2rem;
 }
+
 .commonName {
   color: var(--secondary-color-2);
   font-size: 2.5rem;
-  padding-bottom: 8px;
+ 
   letter-spacing: 2px;
   font-weight: 800;
 }

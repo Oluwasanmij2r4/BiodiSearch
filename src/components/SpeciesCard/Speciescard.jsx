@@ -179,7 +179,9 @@ const handleOpenSaveModal = (species) => {
                 </div>
                 <div>
                   <div className={styles.saveSpecieCard}>
-                    <h1 className={styles.commonName}>{species.commonName}</h1>
+                    <div>
+                      <h1 className={styles.commonName}>{species.commonName}</h1>
+                    </div>
                     <div className={styles.saveButton}>
                       <Button
                         onClick={() => handleOpenSaveModal(species)}
