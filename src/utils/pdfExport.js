@@ -89,19 +89,27 @@ export const reportToPdf = async (speciesData, aiSummary) => {
     doc.text(`Genus: ${species.genus}`, 60, y);
     y += 10;
 
+    // Abstract Summary
     doc.text("Abstract Summary:", 10, y);
     y += 6;
-    doc.text(species.abstract || "No abstract available.", 10, y);
-    y += 10;
+    const wrappedAbstract = doc.splitTextToSize(
+      species.abstract || "No abstract available.",
+      180
+    );
+    doc.text(wrappedAbstract, 10, y);
+    y += wrappedAbstract.length * 6;
+
+    // AI Summary
+    doc.text("AI Summary:", 10, y);
+    y += 6;
 
     if (aiSummary) {
-      doc.text("AI Summary:", 10, y);
-      y += 6;
-      doc.text(aiSummary, 10, y);
-      y += 10;
+      const wrappedSummary = doc.splitTextToSize(aiSummary, 180);
+      doc.text(wrappedSummary, 10, y);
+      y += wrappedSummary.length * 6;
     } else {
       doc.text(
-        "AI Summary: Not available. Run AI summary to include it in the report.",
+        "Not available. Run AI summary to include it in the report.",
         10,
         y
       );
