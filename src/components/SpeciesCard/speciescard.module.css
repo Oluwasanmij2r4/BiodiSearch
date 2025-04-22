@@ -53,7 +53,15 @@
   }
 }
 
+.speciesImageCard{
+  /* width: 30%; */
+}
+
 .speciesImage {
+  max-width: 100%;
+}
+
+.saveText{
   width: 100%;
 }
 
@@ -61,6 +69,7 @@
   display: flex;
   border-bottom: 2px solid #e4e2e262;
   align-items: center;
+  width: 100%;
 }
 
 .saveButton {
@@ -69,8 +78,10 @@
   gap: 0.5rem;
   margin-left: auto;
   padding-right: 2rem;
-  width: 70vh;
+  flex-grow: 1;
 }
+
+
 .commonName {
   color: var(--secondary-color-2);
   font-size: 2.5rem;
