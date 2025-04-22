@@ -1,4 +1,6 @@
 export const fetchAiSummary = async( species) =>{
+  const apiKey = process.env.OPENROUTER_API_KEY;
+
     const {
         scientificName,
         commonName,
@@ -25,7 +27,7 @@ try {
     method: "POST",
     headers: {
       Authorization:
-        "Bearer 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",
+        `BEARER ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
